@@ -13,7 +13,8 @@ def get_db_config():
     cfg = st.secrets.get("mariadb", None) # mariadb 설정 찾고 없으면 None값 반환
 
     if cfg is None:
-        st.warning("streamlit 비밀 설정 파일이 입력되지 않았습니다.")
+        st.warning("streamlit 비밀 설정 파일이 입력되지 않았습니다. 프로그램이 종료됩니다.")
+        st.stop()
 
     return dict(
         host = cfg.get("host"),
